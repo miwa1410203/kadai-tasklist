@@ -11,10 +11,10 @@ class TasksController extends Controller
     // getでtasks/にアクセスされた場合の「一覧表示処理」
     public function index()
     {
-        // メッセージ一覧を取得
+        // タスクリスト一覧を取得
         $tasks = Task::all();
 
-        // メッセージ一覧ビューでそれを表示
+        // タスクリスト一覧ビューでそれを表示
         return view('tasks.index', [
             'tasks' => $tasks,
         ]); 
@@ -47,7 +47,7 @@ class TasksController extends Controller
     {
         // バリデーション
         $request->validate([
-            'status' => 'required|max:255',   // 追加
+            'status' => 'required|max:10',   // 追加
             'content' => 'required|max:255',
         ]);
         // メッセージを作成
@@ -107,7 +107,7 @@ class TasksController extends Controller
     {
         
         $request->validate([
-            'status' => 'required|max:255',   // 追加
+            'status' => 'required|max:10',   // 追加
             'content' => 'required|max:255',
         ]);
 
